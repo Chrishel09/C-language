@@ -1,0 +1,26 @@
+#include<stdio.h>
+float square(float side)
+{
+    return side*side;
+}
+float circle(float r)
+{
+    return 3.14*r*r;
+}
+float rectangle(float a, float b)
+{
+    return a*b;
+}
+int main()
+{
+    float side,a,b,r,s,c,d;
+    printf("enter the value of side a b and r");
+    scanf("%f %f %f %f/n",&side,&a, &b, &r);
+   s=square(side);
+   c=circle(r);
+   d=rectangle(a,b);
+   printf("area of square=%f \n",s);
+   printf("area of circle=%f \n  ",c);
+   printf("area of rectangle=%f \n",d);
+   return 0;
+}
