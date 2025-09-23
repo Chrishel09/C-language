@@ -1,0 +1,16 @@
+#include<stdio.h>
+float convert(float c)
+{
+    float f=(c*(9/5))+32;
+    return f;
+}
+int main()
+{
+  float c,fahrenheit;
+  printf("enter the value in celsius");
+  scanf("%f",&c);
+  fahrenheit=convert(c);
+  printf("celsius to fahrenheit=%f",fahrenheit);
+  return 0;
+}
+
