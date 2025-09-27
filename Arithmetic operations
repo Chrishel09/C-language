@@ -41,7 +41,7 @@ int main(){
        printf("invalid output");
        return 0;
     }
-       printf("result=%d",result);
+       printf("result = %d",result);
        return 0;
     }
 
