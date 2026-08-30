@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<string.h>
+int Match(char txt[],char pat[])
+{
+  int txt_len, pat_len, c, e, d, position = -1;
+  txt_len = strlen(txt);
+ pat_len = strlen(pat);
+ if(pat_len > txt_len){
+    return -1;
+ }
+ for(c = 0; c<=txt_len - pat_len; c++){
+    position = e = c;
+    for(d= 0; d<pat_len; d++){
+        if(pat[d] == txt[e]){
+            e++;
+        }
+        else{
+            break;
+        }
+        }
+        if(d == pat_len){
+            return position;
+        }
+    }
+    return -1;
+ }
+ int main(){
+    char text[100], pat[100];
+    int pos;
+    printf("enter the main string:%n");
+    gets(text);
+    printf("enter the pattern string:%n");
+    gets(pat);
+    pos = Match(text, pat);
+    if(pos != -1){
+        printf("string is found in position %d", pos + 1);
+    }
+    else{
+        printf("not found");
+    }
+    return 0;
+ }
