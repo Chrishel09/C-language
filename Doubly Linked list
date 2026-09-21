@@ -1,0 +1,134 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    char name[100], branch[100];
+    int sem, usn;
+    long int phn;
+    struct node *next, *prev;
+};
+struct node *head = NULL, *temp, *ptr;
+void enter_details(){
+    printf("enter the details \n");
+    printf("Name:");
+    scanf("%s", temp->name);
+    printf("Branch:");
+    scanf("%s", temp->branch);
+    printf("sem:");
+    scanf("%d",&temp->sem);
+    printf("USN:");
+    scanf("%d",&temp->usn);
+    printf("Phone number:");
+    scanf("%ld",&temp->phn);
+    temp->next = NULL;
+    temp->prev=NULL;
+}
+void create(){
+    temp = (struct node*)malloc(sizeof(struct node));
+    enter_details();
+    if(head == NULL){
+        head = temp;
+    }
+    else{
+        temp->next = head;
+        head->prev=temp;
+        head = temp;
+    }
+    }
+    void insert_front(){
+        if(head == NULL){
+            create();
+            return;
+        }
+        temp = (struct node*)malloc(sizeof(struct node));
+        enter_details();
+        temp->next = head;
+        head->prev = temp;
+        head = temp;
+    }
+    void insert_end(){
+        if(head == NULL){
+            create();
+            return;
+        }
+        temp = (struct node*)malloc(sizeof(struct node));
+        enter_details();
+        ptr= head;
+        while(ptr->next != NULL){
+            ptr=ptr->next;
+        }
+        ptr->next = temp;
+        temp->prev  = ptr;
+    }
+    void print_details(struct node *node){
+        printf("the deleted data is: \n name: %s \n branch: %s\n USN:%d \n Sem: %d \n PHN:%ld\n", node->name, node->branch, node->usn, node->sem, node->phn);
+    }
+    void delete_front(){
+        if(head == NULL){
+            printf("underflow");
+            return;
+        }
+        ptr = head;
+        if(head->next == NULL){
+            print_details(ptr);
+            free(ptr);
+            head= NULL;
+            return;
+}
+head->next = head;
+head->prev= NULL;
+print_details(ptr);
+free(ptr);
+    }
+     void delete_end(){
+        if(head == NULL){
+            printf("underflow");
+            return;
+        }
+        ptr = head;
+        if(head->next == NULL){
+            print_details(ptr);
+            free(ptr);
+            head = NULL;
+            return;
+}
+while(ptr->next !=NULL){
+    ptr=ptr->next;
+}
+ptr->prev->next = NULL;
+print_details(ptr);
+free(ptr);
+     }
+     void display(){
+        int count = 0;
+        if(head == NULL){
+            printf("list is empty \n");
+            return;
+        }
+        ptr = head;
+        printf("the details in the list are:\n");
+        while(ptr != NULL){
+            printf("name: %s \n branch: %s\n USN:%d \n Sem: %d \n PHN:%ld\n", ptr->name, ptr->branch, ptr->usn, ptr->sem, ptr->phn);
+            count++;
+            ptr=ptr->next;
+        }
+        printf("total number of nodes:%d\n", count);
+     }
+int main(){
+    int choice;
+    printf("select option \n");
+    printf("\n 1. create \n 2. insert front \n 3. insert end \n 4. delete front \n 5. delete end \n 6. display \n 7. exit \n");
+    while(1){
+        printf("enter option ");
+        scanf("%d", &choice);
+        switch(choice){
+            case 1: create(); break;
+            case 2: insert_front(); break;
+            case 3: insert_end(); break;
+            case 4: delete_front(); break;
+            case 5: delete_end(); break;
+            case 6: display(); break;
+            case 7: exit(0); break;
+            default: printf("invalid option");
+        }
+    }
+}
