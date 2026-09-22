@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define m 3
+int h[m] = {0};
+void insert(){
+    int key, index, i;
+    printf("enter the value to be inserted:\n");
+    scanf("%d", &key);
+for(i = 0; i<m; i++){
+    index = ((key % m)+i)%m;
+    if(h[index] == 0){
+        h[index] = key;
+        break;
+    }
+}
+if(i==m){
+    printf("hash table is full \n");
+}
+}
+void display(){
+    int i;
+    printf("elements in the hash table are:\n");
+    for(i = 0; i<m;i++){
+        printf("index: %d \t value: %d \n", i, h[i]);
+    }
+}
+int main(){
+    int ch;
+    printf("1.insert\n2.display\n3.exit\n");
+    while(1){
+        printf("enter the choice \n ");
+        scanf("%d", &ch);
+        switch(ch){
+            case 1: insert();break;
+            case 2: display();break;
+            case 3: exit(0);break;
+            default: printf("invalid choice \n");
+        }
+    }
+    return 0;
+}
