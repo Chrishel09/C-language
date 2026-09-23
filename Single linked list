@@ -1,0 +1,177 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    char USN[10],name[20], branch[10];
+    long int Phn;
+    int sem;
+    struct node *link;
+};
+struct node *head = NULL;
+void create(){
+    struct node *temp;
+    temp = (struct node*)malloc(sizeof(struct node));
+    if(temp == NULL){
+        printf("out of memory");
+        exit(0);
+    }
+    printf("enter details:\n");
+    printf("Enter name:");
+    scanf("%s",temp -> name);
+    printf("Enter USN:");
+    scanf("%s",temp -> USN); 
+    printf("Enter branch:");
+    scanf("%s",&temp -> branch);
+    printf("Enter phone number:");
+    scanf("%ld",&temp -> Phn);
+    printf("Enter sem:");
+    scanf("%d",&temp -> sem);
+    temp->link = NULL;
+    if(head == NULL){
+        head = temp;
+    }
+    else{
+        temp->link=head;
+        head = temp;
+    }
+    }
+void insert_front(){
+     struct node *temp;
+    temp = (struct node*)malloc(sizeof(struct node));
+    if(temp ==NULL){
+        printf("out of memory");
+        exit(0);
+    }
+    printf("enter details:\n");
+    printf("Enter name:");
+    scanf("%s",temp -> name);
+    printf("Enter USN:");
+    scanf("%s",temp -> USN); 
+    printf("Enter branch:");
+    scanf("%s",temp -> branch);
+    printf("Enter phone number:");
+    scanf("%ld",&temp -> Phn);
+    printf("Enter sem:");
+    scanf("%d",&temp -> sem);
+    temp->link = NULL;
+    if(head == NULL){
+        head = temp;
+    }
+    else{
+        temp->link=head;
+        head = temp;
+    }
+}
+void insert_end(){
+     struct node *temp, *ptr;
+     temp = (struct node*)malloc(sizeof(struct node));
+    if(temp ==NULL){
+        printf("out of memory");
+        exit(0);    
+    }
+    printf("enter details:\n");
+    printf("Enter name:");
+    scanf("%s",temp -> name);
+    printf("Enter USN:");
+    scanf("%s",temp -> USN); 
+    printf("Enter branch:");
+    scanf("%s",temp -> branch);
+    printf("Enter phone number:");
+    scanf("%ld",&temp -> Phn);
+    printf("Enter sem:");
+    scanf("%d",&temp -> sem);
+    temp->link == NULL;
+    if(head == NULL){
+        head = temp;
+    }
+    else{
+        ptr = head;
+        while(ptr->link != NULL)
+          ptr= ptr->link;
+        ptr->link = temp;
+}
+}
+void delete_front(){
+    struct node *ptr;
+    if(head == NULL){
+        printf("list is empty \n");
+        return;
+    }
+    else {
+      ptr = head;
+      head  = head->link;
+      free(ptr);
+    printf("the deleted data is:\n Name: %s\n USN: %s \n Branch: %s \n Sem: %d \n Phn: %ld\n", ptr->name, ptr->USN, ptr-> branch, ptr->sem, ptr->Phn);
+    }
+    }
+    void delete_end(){
+        struct node *temp, *ptr;
+        if(head == NULL){
+            printf("list is empty \n");
+            exit(0);
+        }
+    
+        else if(head->link ==NULL){
+                ptr = head;
+                head = NULL;
+                free(ptr);
+            }
+            else{
+                ptr = head;
+                while(ptr->link != NULL){
+                    temp = ptr;
+                    ptr=ptr->link;
+                }
+                temp->link = NULL;
+                free(ptr);
+            }
+
+        }
+        void display(){
+            int count=0;
+            struct node *ptr;
+            if(head == NULL){
+                printf("list is empty \n");
+                return;
+            }
+            else{
+                ptr = head;
+                printf("the details in the list are:\n");
+                while(ptr != NULL){
+                    printf("Name: %s\n USN: %s \n Branch: %s \n Sem: %d \n Phn: %ld\n", ptr->name, ptr->USN, ptr-> branch, ptr->sem, ptr->Phn);
+                    count++;
+                    ptr=ptr->link;
+                }
+                printf("the number of nodes in the list is:%d\n", count);
+            }
+        }
+        int main(){
+            int choice;
+            while(1){
+                printf("1.create\n2.insert_front\n3.insert_end\n4.delete_front\n5.delete_end\n6.display\n7.exit\n");
+                printf("enter your choice:\n");
+                scanf("%d",&choice);
+                switch(choice){
+                    case 1: create();
+                            break;
+                    case 2: insert_front();
+                            break;
+                    case 3: insert_end();
+                            break;
+                    case 4: delete_front();
+                            break;
+                    case 5: delete_end();
+                            break;
+                    case 6: display();
+                            break;
+                    case 7: exit(0);
+                    default: printf("invalid choice\n");
+                }
+            }
+            return 0;
+        }
+    
+
+
+
+
+
